@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore, Store, useStore as useVuexStore } from 'vuex'
 
 export default createStore({
   state: {},
