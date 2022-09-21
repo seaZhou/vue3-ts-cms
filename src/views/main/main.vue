@@ -16,7 +16,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
+import { accountLoginRequest, getCodeImg } from '@/service/login/login'
 import NavHeader from '@/components/nav-header'
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
@@ -30,6 +31,11 @@ export default defineComponent({
     const foldChange = (isFold: boolean) => {
       isCollapse.value = isFold
     }
+    onMounted(() => {
+      // getCodeImg().then((res) => {
+      //   console.log(res, '验证码')
+      // })
+    })
     return {
       isCollapse,
       foldChange
