@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { userInfo } from 'os'
+// import { userInfo } from 'os'
 import { defineComponent, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
