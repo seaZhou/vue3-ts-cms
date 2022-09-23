@@ -17,8 +17,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
-import { accountLoginRequest, getCodeImg } from '@/service/login/login'
+import { getRoutes } from '@/service/login/login'
 import NavHeader from '@/components/nav-header'
+import { LoginInfo } from '@/service/login/types'
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'main',
@@ -32,9 +33,7 @@ export default defineComponent({
       isCollapse.value = isFold
     }
     onMounted(() => {
-      // getCodeImg().then((res) => {
-      //   console.log(res, '验证码')
-      // })
+      getRoutes().then()
     })
     return {
       isCollapse,

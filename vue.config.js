@@ -14,6 +14,18 @@ module.exports = defineConfig({
   //   }
   // }
   // 配置方式三：
+  devServer: {
+    proxy: {
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'https://www.web.wdjyfxl.com/prod-api',
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API]: ''
+        },
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  },
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src'))

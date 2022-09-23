@@ -14,13 +14,13 @@
 
 <script lang="ts">
 // import { userInfo } from 'os'
-import { defineComponent, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { defineComponent } from 'vue'
+// import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
   setup() {
-    const router = useRouter()
-    const route = useRoute()
-    const menus = [{}]
+    // const router = useRouter()
+    // const route = useRoute()
+    // const menus = [{}]
     // const menu = pathMapToMenu(menus, route.path)
     // const currentItemId = ref<string>(menu.id + '')
   }

@@ -11,8 +11,8 @@ interface InterceptorHooks {
 }
 
 interface HPRequestConfig extends AxiosRequestConfig {
-  showLoading?: boolean
   interceptorHooks?: InterceptorHooks
+  showLoading?: boolean // 是否需要显示loading
 }
 
 interface HPData<T> {
@@ -23,8 +23,8 @@ interface HPData<T> {
 class HPRequest {
   config: AxiosRequestConfig
   interceptorHooks?: InterceptorHooks
-  showLoading: boolean
   loading?: ILoadingInstance
+  showLoading: boolean
   instance: AxiosInstance
   constructor(options: HPRequestConfig) {
     this.config = options
@@ -57,6 +57,7 @@ class HPRequest {
 
     this.instance.interceptors.response.use(
       (res) => {
+        // 将 loading 移除
         this.loading?.close()
         return res
       },
