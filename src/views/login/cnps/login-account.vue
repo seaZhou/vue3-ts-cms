@@ -5,8 +5,8 @@
     ref="formRef"
     :rules="accountRules"
   >
-    <el-form-item label="账号：" prop="username">
-      <el-input v-model="account.username"></el-input>
+    <el-form-item label="账号：" prop="name">
+      <el-input v-model="account.name"></el-input>
     </el-form-item>
     <el-form-item label="密码：" prop="password">
       <el-input v-model="account.password" show-password></el-input>
@@ -37,9 +37,7 @@ export default defineComponent({
       }
     })
     const accountRules = {
-      username: [
-        { required: true, message: '必须输入用户名', trigger: 'blur' }
-      ],
+      name: [{ required: true, message: '必须输入用户名', trigger: 'blur' }],
       password: [
         { required: true, message: '必须输入密码', trigger: 'blur' },
         {
@@ -56,16 +54,16 @@ export default defineComponent({
       formRef.value?.validate((valid) => {
         if (valid) {
           // 登录逻辑
-          const username = account.value.username
+          const name = account.value.name
           const password = account.value.password
           // 保存账户和密码
           if (isKeep) {
-            localCache.setCache('name', username)
+            localCache.setCache('name', name)
             localCache.setCache('password', password)
           }
           // 登录
           console.log(store, 'store')
-          store.dispatch('login/accountLoginAction', { username, password })
+          store.dispatch('login/accountLoginAction', { name, password })
         }
       })
     }

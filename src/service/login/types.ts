@@ -1,5 +1,5 @@
 export interface Account {
-  username: string
+  name: string
   password: string
 }
 
@@ -7,5 +7,4 @@ export interface LoginInfo {
   id: number
   token: string
   name: string
-  sysUser: object
 }

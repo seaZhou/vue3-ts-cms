@@ -2,8 +2,9 @@ import hpRequest from '../index'
 import { Account, LoginInfo } from './types'
 // 枚举
 enum LoginApi {
-  AccountLogin = '/api/public/user/login',
-  route = '/system/menu/getRouters'
+  AccountLogin = '/login',
+  UserInfo = '/users/',
+  UserMenus = '/role/'
 }
 
 export function accountLoginRequest(account: Account) {
@@ -15,8 +16,14 @@ export function accountLoginRequest(account: Account) {
   })
 }
 
-export function getRoutes() {
+export function getUserById(id: number) {
   return hpRequest.get({
-    url: LoginApi.route
+    url: LoginApi.UserInfo + id
+  })
+}
+
+export function getUserMenus(id: number) {
+  return hpRequest.get({
+    url: LoginApi.UserMenus + id + '/menu'
   })
 }

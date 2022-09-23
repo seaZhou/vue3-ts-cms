@@ -17,7 +17,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: 'https://www.web.wdjyfxl.com/prod-api',
+        target: 'http://152.136.185.210:5000',
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         },

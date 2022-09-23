@@ -32,7 +32,7 @@ export default defineComponent({
     const cacheName = localCache.getCache('name') ?? ''
     const cachePassword = localCache.getCache('password') ?? ''
     const account = reactive({
-      username: cacheName,
+      name: cacheName,
       password: cachePassword
     })
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
