@@ -2,7 +2,7 @@
   <div class="nav-header">
     <i
       class="menu-icon"
-      :class="isFold ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
+      :class="!isFold ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
       @click="handleFoldClick"
     ></i>
     <div class="content">
@@ -18,7 +18,7 @@ import useMenuIcon from '../hooks/useMenuIconHook'
 import HpBreadcrumb from '@/base-ui/breadcrumb'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
-import { pathMapToMenu } from '@/utils/map-menu'
+import { pathMapBreadcrumbs } from '@/utils/map-menu'
 import NavInfo from './nav-info.vue'
 export default defineComponent({
   emits: ['foldChange'],
@@ -29,7 +29,7 @@ export default defineComponent({
     const breadcrumbs = computed(() => {
       const path = useRoute().path
       const userMenus = useStore().state.login.userMenus
-      return pathMapToMenu(userMenus, path)
+      return pathMapBreadcrumbs(userMenus, path)
     })
     return {
       isFold,

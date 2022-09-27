@@ -37,7 +37,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
-import { setupStore, useStore } from '@/store'
+import { useStore } from '@/store'
 import { useRouter } from 'vue-router'
 import localCache from '@/utils/cache'
 export default defineComponent({

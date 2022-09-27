@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router'
 import { firstRoute } from '@/utils/map-menu'
 import localCache from '@/utils/cache'
 
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/main'
@@ -16,8 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: () =>
-      import(/* webpackChunkName: "login" */ '@/views/login/login.vue')
+    component: () => import('@/views/login/login.vue')
   },
   {
     path: '/:pathMatch(.*)*',
@@ -27,8 +26,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  history: createWebHashHistory()
 })
 
 router.beforeEach((to) => {
@@ -40,7 +39,7 @@ router.beforeEach((to) => {
     }
 
     if (to.path === '/main') {
-      console.log(firstRoute)
+      console.log(firstRoute, 'firstRoute')
       return firstRoute?.path
     }
   }

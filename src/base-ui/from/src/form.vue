@@ -76,7 +76,7 @@ export default defineComponent({
     },
     itemStyle: {
       type: Object,
-      default: () => ({ padding: '10px 40px' })
+      default: () => ({ padding: '15px 50px 15px 0' })
     },
     colLayout: {
       type: Object,
@@ -110,6 +110,10 @@ export default defineComponent({
 
 <style scoped lang="less">
 .hp-form {
-  padding: 20px 20px 0;
+  padding: 15px 32px 28px;
+  border-radius: 16px;
+  .el-form-item {
+    margin: 0;
+  }
 }
 </style>

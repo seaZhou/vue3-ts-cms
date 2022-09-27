@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? '60px' : '210px'">
+      <el-aside :width="isCollapse ? '94px' : '328px'">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -18,10 +18,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
-import NavHeader from '@/components/nav-header'
+import { defineComponent, ref } from 'vue'
 import NavMenu from '@/components/nav-menu'
-import { LoginInfo } from '@/service/login/types'
+import NavHeader from '@/components/nav-header'
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'main',
@@ -74,7 +73,7 @@ export default defineComponent({
 }
 
 .el-header {
-  height: 48px !important;
+  height: 80px !important;
 }
 
 .el-aside {
@@ -83,10 +82,11 @@ export default defineComponent({
   line-height: 200px;
   text-align: left;
   cursor: pointer;
-  background-color: #001529;
+  background-color: #fff;
   transition: width 0.3s linear;
   scrollbar-width: none; /* firefox */
   -ms-overflow-style: none; /* IE 10+ */
+  padding: 26px 28px 0;
 
   &::-webkit-scrollbar {
     display: none;

@@ -9,7 +9,7 @@ import {
   getUserMenus
 } from '@/service/login/login'
 import localCache from '@/utils/cache'
-import { menuMapToRoutes } from '@/utils/map-menu'
+import { menuMapToRoutes, menuMapToPermissions } from '@/utils/map-menu'
 
 const login: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -32,8 +32,15 @@ const login: Module<ILoginState, IRootState> = {
     saveUserMenus(state, userMenus: any) {
       state.userMenus = userMenus
 
-      // 根据菜单映射路由
+      // 根据菜单映射路由：关键！！！没有这步 菜单映射不出来，并且找不到路由
       const routes = menuMapToRoutes(userMenus)
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
+
+      // 检查按钮的权限
+      const permissions = menuMapToPermissions(userMenus)
+      state.permissions = permissions
     }
   },
   actions: {
@@ -58,13 +65,16 @@ const login: Module<ILoginState, IRootState> = {
       console.log('userMenus---->>', userMenus)
       commit('saveUserMenus', userMenus)
       localCache.setCache('userMenus', userMenus)
+
+      // 4.请求完全的角色和部门
+      this.dispatch('getInitalDataAction', null, { root: true })
       router.push('/main')
     },
     loadLocalCache({ commit, dispatch }) {
       const token = localCache.getCache('token')
       if (token) {
         commit('saveToken', token)
-        dispatch('getInitalDataAction')
+        dispatch('getInitalDataAction', null, { root: true })
       }
       const userInfo = localCache.getCache('userInfo')
       if (userInfo) {

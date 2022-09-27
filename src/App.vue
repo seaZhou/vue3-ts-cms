@@ -1,7 +1,9 @@
 <template>
-  <el-config-provider :locale="zhCn">
-    <router-view />
-  </el-config-provider>
+  <div id="app">
+    <el-config-provider :locale="zhCn">
+      <router-view></router-view>
+    </el-config-provider>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'

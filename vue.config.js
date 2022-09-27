@@ -30,5 +30,6 @@ module.exports = defineConfig({
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src'))
       .set('components', '@/components')
+      .set('views', '@/views')
   }
 })
