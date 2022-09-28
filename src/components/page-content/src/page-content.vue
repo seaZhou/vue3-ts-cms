@@ -34,6 +34,16 @@
           >
         </div>
       </template>
+      <!-- 剩余的其他插槽 -->
+      <template
+        v-for="item in otherPropSlots"
+        :key="item.prop"
+        #[item.slotName]="scope"
+      >
+        <template v-if="item.slotName">
+          <slot :name="item.slotName" :row="scope.row"></slot>
+        </template>
+      </template>
     </hp-table>
   </div>
 </template>
@@ -107,6 +117,17 @@ export default defineComponent({
     const handleEditClick = (rowItem: any) => {
       console.log(rowItem)
     }
+
+    // 剩余需要的插槽
+    const otherPropSlots = computed(() => {
+      return props.contentConfig.propList.filter((item: any) => {
+        if (item.slotName === 'status') return false
+        else if (item.slotName === 'create') return false
+        else if (item.slotName === 'update') return false
+        else if (item.slotName === 'handler') return false
+        return true
+      })
+    })
     return {
       getPageData,
       pageListData,
@@ -115,7 +136,8 @@ export default defineComponent({
       isUpdate,
       isDelete,
       handleDeleteClick,
-      handleEditClick
+      handleEditClick,
+      otherPropSlots
     }
   }
 })
