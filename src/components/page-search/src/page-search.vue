@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-search">
     <hp-form v-bind="searchConfig" v-model="formData">
       <template #footer>
         <div class="btns">
@@ -68,4 +68,11 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.page-search {
+  background: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(209, 217, 227, 0.25);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+</style>

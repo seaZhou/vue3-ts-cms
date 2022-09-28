@@ -59,7 +59,6 @@ export default defineComponent({
   height: calc(100% - 48px);
 
   .content {
-    background-color: #fff;
     border-radius: 8px;
   }
 }

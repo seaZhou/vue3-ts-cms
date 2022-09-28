@@ -1,7 +1,11 @@
 <template>
   <div class="user">
     <page-search :searchConfig="searchFormConfig"></page-search>
-    <page-content ref="pageContentRef" ></page-content>
+    <page-content
+      ref="pageContentRef"
+      :contentConfig="contentTableConfig"
+      pageName="users"
+    ></page-content>
   </div>
 </template>
 
@@ -10,12 +14,14 @@ import { defineComponent } from 'vue'
 import PageSearch from '@/components/page-search'
 import PageContent from '@/components/page-content'
 import { searchFormConfig } from './config/search.config'
+import { contentTableConfig } from './config/content.config'
 
 export default defineComponent({
   components: { PageSearch, PageContent },
   setup() {
     return {
-      searchFormConfig
+      searchFormConfig,
+      contentTableConfig
     }
   }
 })
