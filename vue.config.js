@@ -31,5 +31,9 @@ module.exports = defineConfig({
       .set('@', path.resolve(__dirname, 'src'))
       .set('components', '@/components')
       .set('views', '@/views')
+    config.plugin('html').tap((args) => {
+      args[0].title = 'jason CMS'
+      return args
+    })
   }
 })

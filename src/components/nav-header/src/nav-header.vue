@@ -46,8 +46,9 @@ export default defineComponent({
   flex: 1;
 
   .menu-icon {
-    font-size: 28px;
+    font-size: 22px;
     cursor: pointer;
+    color: #d7dde7;
   }
 
   .content {

@@ -56,7 +56,7 @@ export default defineComponent({
 }
 
 .page-content {
-  height: calc(100% - 48px);
+  height: calc(100% - 80px);
 
   .content {
     border-radius: 8px;

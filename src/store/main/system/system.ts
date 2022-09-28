@@ -1,7 +1,12 @@
 import { IRootState } from './../../types'
 import { Module } from 'vuex'
 import { ISystemState, IPagePayload } from './types'
-import { getPageList, deletePageData } from '@/service/main/system/system'
+import {
+  getPageList,
+  deletePageData,
+  newPageData,
+  editPageData
+} from '@/service/main/system/system'
 const systemModule: Module<ISystemState, IRootState> = {
   namespaced: true,
   state() {
@@ -46,12 +51,33 @@ const systemModule: Module<ISystemState, IRootState> = {
           break
       }
     },
+    // 删除
     async deletePageDataAction({ dispatch }, payload: IPagePayload) {
       const pageName = payload.pageName
       const deleteId = payload.id
       if (!deleteId) return
       const pageUrl = `/${pageName}/${deleteId}`
       await deletePageData(pageUrl)
+      dispatch('getPageListDataAction', {
+        pageName: payload.pageName,
+        queryInfo: { offset: 0, size: 10 }
+      })
+    },
+    // 新增
+    async newPageDataAction({ dispatch }, payload: IPagePayload) {
+      const pageUrl = `/${payload.pageName}/`
+      const pageData = payload.queryInfo
+      await newPageData(pageUrl, pageData)
+      dispatch('getPageListDataAction', {
+        pageName: payload.pageName,
+        queryInfo: { offset: 0, size: 10 }
+      })
+    },
+    // 编辑
+    async editPageDataAction({ dispatch }, payload: IPagePayload) {
+      const pageUrl = `/${payload.pageName}/${payload.id}`
+      const pageData = payload.queryInfo
+      await editPageData(pageUrl, pageData)
       dispatch('getPageListDataAction', {
         pageName: payload.pageName,
         queryInfo: { offset: 0, size: 10 }

@@ -3,11 +3,11 @@
     <div class="info">
       <el-dropdown>
         <span class="el-dropdown-link">
-          <el-avater
+          <el-avatar
             size="medium"
             class="avater"
-            src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg"
-          ></el-avater>
+            src="https://avatars.githubusercontent.com/u/45349892?s=40&v=4"
+          ></el-avatar>
           <span class="name">{{ name }}</span>
         </span>
         <template #dropdown>
@@ -62,6 +62,7 @@ export default defineComponent({
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  color: #176afe;
 
   .el-dropdown-link {
     display: flex;
@@ -74,6 +75,7 @@ export default defineComponent({
     }
     .name {
       margin-left: 8px;
+      color: #176afe;
     }
   }
 

@@ -115,7 +115,7 @@ export default defineComponent({
     }
 
     const handleEditClick = (rowItem: any) => {
-      console.log(rowItem)
+      emit('editBtnClick', rowItem)
     }
 
     // 剩余需要的插槽
