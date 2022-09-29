@@ -13,7 +13,9 @@
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "countup.js": "^2.3.2",
     "dayjs": "^1.11.5",
+    "echarts": "^5.4.0",
     "element-plus": "^1.0.2-beta.70",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.13",

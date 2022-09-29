@@ -8,7 +8,7 @@
             class="avater"
             src="https://avatars.githubusercontent.com/u/45349892?s=40&v=4"
           ></el-avatar>
-          <span class="name">{{ name }}</span>
+          <span class="name">Jason</span>
         </span>
         <template #dropdown>
           <el-dropdown-menu>

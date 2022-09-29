@@ -64,7 +64,6 @@ export default defineComponent({
   .control-account {
     margin-top: 12px;
     display: flex;
-
     justify-content: space-between;
   }
 

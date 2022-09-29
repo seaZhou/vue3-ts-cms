@@ -44,6 +44,7 @@
     <div class="footer" v-if="showFooter">
       <slot name="footer">
         <el-pagination
+          background
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="page.currentPage"

@@ -4,6 +4,7 @@ import { IRootState } from './types'
 import type { IStore } from './types'
 import login from './login/login'
 import system from './main/system/system'
+import analysis from './main/analysis/analysis'
 const store = createStore<IRootState>({
   state() {
     return {
@@ -25,7 +26,8 @@ const store = createStore<IRootState>({
   },
   modules: {
     login,
-    system
+    system,
+    analysis
   }
 })
 export function useStore(): Store<IStore> {
