@@ -6,7 +6,8 @@ import router from '@/router'
 import {
   accountLoginRequest,
   getUserById,
-  getUserMenus
+  getUserMenus,
+  getCode
 } from '@/service/login/login'
 import localCache from '@/utils/cache'
 import { menuMapToRoutes, menuMapToPermissions } from '@/utils/map-menu'
@@ -16,6 +17,7 @@ const login: Module<ILoginState, IRootState> = {
   state() {
     return {
       token: '',
+      code: '',
       userInfo: {},
       userMenus: {},
       permissions: []
@@ -25,6 +27,9 @@ const login: Module<ILoginState, IRootState> = {
   mutations: {
     saveToken(state, token: string) {
       state.token = token
+    },
+    saveCode(state, code: string) {
+      state.code = code
     },
     saveUserInfo(state, userInfo: any) {
       state.userInfo = userInfo
@@ -48,6 +53,8 @@ const login: Module<ILoginState, IRootState> = {
       { commit },
       account: { name: string; password: string }
     ) {
+      // const code = await getCode()
+      // commit('saveCode', code)
       // 1.用户登录
       const loginResult = await accountLoginRequest(account)
       const { token, id } = loginResult

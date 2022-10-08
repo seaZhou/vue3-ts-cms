@@ -4,7 +4,8 @@ import { Account, LoginInfo } from './types'
 enum LoginApi {
   AccountLogin = '/login',
   UserInfo = '/users/',
-  UserMenus = '/role/'
+  UserMenus = '/role/',
+  Code = '/code'
 }
 
 export function accountLoginRequest(account: Account) {
@@ -25,5 +26,11 @@ export function getUserById(id: number) {
 export function getUserMenus(id: number) {
   return hpRequest.get({
     url: LoginApi.UserMenus + id + '/menu'
+  })
+}
+
+export function getCode() {
+  return hpRequest.get({
+    url: LoginApi.Code
   })
 }

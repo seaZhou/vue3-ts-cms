@@ -12,7 +12,12 @@ const systemModule: Module<ISystemState, IRootState> = {
   state() {
     return {
       usersTotalCount: 0,
-      usersList: []
+      usersList: [],
+      departmentTotalCount: 0,
+      departmentList: [],
+      menuList: [],
+      roleTotalCount: 0,
+      roleList: []
     }
   },
   mutations: {
@@ -21,6 +26,21 @@ const systemModule: Module<ISystemState, IRootState> = {
     },
     changeUsersList(state, userList: any) {
       state.usersList = userList
+    },
+    changeDepartmentTotalCount(state, totalCount: number) {
+      state.departmentTotalCount = totalCount
+    },
+    changeDepartmentList(state, departmentList: any) {
+      state.departmentList = departmentList
+    },
+    changeMenuList(state, menuList: any) {
+      state.menuList = menuList
+    },
+    changeRoleTotalCount(state, totalCount: number) {
+      state.roleTotalCount = totalCount
+    },
+    changeRoleList(state, roleList: any) {
+      state.roleList = roleList
     }
   },
   getters: {
@@ -48,6 +68,17 @@ const systemModule: Module<ISystemState, IRootState> = {
         case 'users':
           commit('changeUsersTotalCount', totalCount)
           commit('changeUsersList', list)
+          break
+        case 'department':
+          commit('changeDepartmentTotalCount', totalCount)
+          commit('changeDepartmentList', list)
+          break
+        case 'menu':
+          commit('changeMenuList', list)
+          break
+        case 'role':
+          commit('changeRoleTotalCount', totalCount)
+          commit('changeRoleList', list)
           break
       }
     },
