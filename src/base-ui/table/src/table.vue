@@ -101,7 +101,7 @@ export default defineComponent({
   },
   emits: ['selectionChange', 'update:page'],
   setup(props, { emit }) {
-    console.log('listData--->>', props.listData)
+    console.log('listData--->>')
     const handleCurrentChange = (currentPage: number) => {
       console.log(props, 'props', currentPage)
       emit('update:page', { ...props.page, currentPage })

@@ -17,7 +17,10 @@
               @click="handleExitClick"
               >退出系统</el-dropdown-item
             >
-            <el-dropdown-item icon="el-icon-info" divided
+            <el-dropdown-item
+              @click="handleToUserInfo"
+              icon="el-icon-info"
+              divided
               >个人信息</el-dropdown-item
             >
             <el-dropdown-item icon="el-icon-unlock">修改密码</el-dropdown-item>
@@ -50,9 +53,13 @@ export default defineComponent({
       localCache.deleteCache('token')
       router.push('/main')
     }
+    const handleToUserInfo = () => {
+      router.push('/userInfo')
+    }
     return {
       name,
-      handleExitClick
+      handleExitClick,
+      handleToUserInfo
     }
   }
 })

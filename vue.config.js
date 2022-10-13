@@ -1,7 +1,32 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
+
+// const fs = require('fs')
+// const postcss = require('postcss')
+// const resolve = (dir) => path.resolve(__dirname, dir)
+// const IS_PROD = ['prod', 'production'].includes(process.env.NODE_ENV)
+// function getLessVaribles(fileUrl, list = {}) {
+//   if (!fs.existsSync(fileUrl)) return {}
+//   let lessFile = fs.readFileSync(fileUrl, 'utf8')
+//   return postcss.parse(lessFile).nodes.reduce((acc, curr) => {
+//     // eslint-disable-next-line no-useless-escape
+//     acc[`${curr.name.replace(/\:/, '')}`] = `${curr.params}`
+//     return acc
+//   }, list)
+// }
+// const modifyVars = getLessVaribles(resolve('./src/assets/less/variables.less'))
 module.exports = defineConfig({
   transpileDependencies: true,
+  // css: {
+  //   extract: IS_PROD,
+  //   sourceMap: false,
+  //   loaderOptions: {
+  //     less: {
+  //       modifyVars,
+  //       javascriptEnabled: true
+  //     }
+  //   }
+  // },
   // 1.配置方式一
   outputDir: './build',
   // publicPath: './',
@@ -37,5 +62,6 @@ module.exports = defineConfig({
       args[0].title = 'jason CMS'
       return args
     })
+    config.resolve.symlinks(true)
   }
 })

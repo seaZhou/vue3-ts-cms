@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import './assets/css/index.css'
 import 'normalize.css'
-
+import './index.css'
 // import './styles/element_theme.less'
 
 import router from './router'
